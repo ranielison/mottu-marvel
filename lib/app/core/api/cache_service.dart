@@ -21,4 +21,10 @@ class HiveService {
     final box = await _box;
     return box.values.toList();
   }
+
+  deleteAllData() async {
+    final box = await _box;
+
+    box.clear();
+  }
 }

@@ -6,7 +6,7 @@ import 'package:mottu_marvel/app/presentation/initial/pages/initial_page.dart';
 class AppRouter {
   static final routes = {
     INITIAL_ROUTE: (context) => const InitialPage(),
-    HOME_ROUTE: (context) => const HomePage(),
+    HOME_ROUTE: (context) => HomePage(),
     DETAILS_ROUTE: (context) => const DetailsPage(),
   };
 }

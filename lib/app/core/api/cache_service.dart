@@ -18,7 +18,7 @@ class HiveService {
   }
 
   Future<List<CharacterResponseModel>> getAllResponses() async {
-    var box = await _box;
+    final box = await _box;
     return box.values.toList();
   }
 }

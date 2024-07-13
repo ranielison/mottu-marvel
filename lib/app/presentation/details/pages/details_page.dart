@@ -87,11 +87,67 @@ class _DetailsPageState extends State<DetailsPage> {
               else
                 Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    'Sem descrição',
-                    style: TextStyles.h4Style.copyWith(color: AppColors.grey3),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Text(
+                      'Sem descrição',
+                      style:
+                          TextStyles.h4Style.copyWith(color: AppColors.grey3),
+                    ),
                   ),
-                )
+                ),
+              Card(
+                color: AppColors.white,
+                child: Theme(
+                  data: ThemeData().copyWith(dividerColor: Colors.transparent),
+                  child: ExpansionTile(
+                    title: Text(
+                      'Séries',
+                      style:
+                          TextStyles.h2Style.copyWith(color: AppColors.grey3),
+                    ),
+                    backgroundColor: AppColors.white,
+                    expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                    expandedAlignment: Alignment.centerLeft,
+                    childrenPadding: const EdgeInsets.all(16),
+                    children: pageArgs.character.series!.items!
+                        .map(
+                          (item) => Text(
+                            ' - ${item.name!}',
+                            style: TextStyles.h5Style.copyWith(),
+                            textAlign: TextAlign.start,
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
+              ),
+              Card(
+                color: AppColors.white,
+                child: Theme(
+                  data: ThemeData().copyWith(dividerColor: Colors.transparent),
+                  child: ExpansionTile(
+                    title: Text(
+                      'Eventos',
+                      style:
+                          TextStyles.h2Style.copyWith(color: AppColors.grey3),
+                    ),
+                    backgroundColor: AppColors.white,
+                    expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                    expandedAlignment: Alignment.centerLeft,
+                    childrenPadding: const EdgeInsets.all(16),
+                    children: pageArgs.character.events!.items!
+                        .map(
+                          (item) => Text(
+                            ' - ${item.name!}',
+                            style: TextStyles.h5Style.copyWith(),
+                            textAlign: TextAlign.start,
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

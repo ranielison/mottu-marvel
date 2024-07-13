@@ -1,12 +1,20 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
+import 'package:mottu_marvel/app/data/models/comic_item_model.dart';
 import 'package:mottu_marvel/app/domain/entities/comic_entity.dart';
 
+part 'comic_model.g.dart';
+
+@HiveType(typeId: 2)
 class ComicModel extends Equatable {
   final int? available;
+  @HiveField(0)
   final String? collectionURI;
+  @HiveField(1)
   final List<ComicItemModel>? items;
+  @HiveField(2)
   final int? returned;
-
+  @HiveField(3)
   const ComicModel({
     this.available,
     this.collectionURI,
@@ -49,33 +57,4 @@ class ComicModel extends Equatable {
 
   @override
   List<Object?> get props => [available, collectionURI, items, returned];
-}
-
-class ComicItemModel extends Equatable {
-  final String? resourceURI;
-  final String? name;
-
-  const ComicItemModel({this.resourceURI, this.name});
-
-  ComicItemEntity toEntity() => ComicItemEntity(
-        resourceURI: resourceURI,
-        name: name,
-      );
-
-  ComicItemModel fromJson(Map<String, dynamic> json) {
-    return ComicItemModel(
-      resourceURI: json['resourceURI'],
-      name: json['name'],
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['resourceURI'] = resourceURI;
-    data['name'] = name;
-    return data;
-  }
-
-  @override
-  List<Object?> get props => [resourceURI, name];
 }

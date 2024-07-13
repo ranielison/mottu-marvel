@@ -16,7 +16,7 @@ class DefaultScreen extends StatelessWidget {
     return SizedBox.expand(
       child: SafeArea(
         child: Padding(
-          padding: contentPadding ?? const EdgeInsets.all(20),
+          padding: contentPadding ?? const EdgeInsets.all(12),
           child: NoAnimationList(child: child),
         ),
       ),

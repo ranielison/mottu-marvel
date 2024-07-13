@@ -1,16 +1,35 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
 import 'package:mottu_marvel/app/data/models/comic_model.dart';
 import 'package:mottu_marvel/app/data/models/thumbnail_model.dart';
 import 'package:mottu_marvel/app/domain/entities/character_entity.dart';
 
+part 'character_model.g.dart';
+
+@HiveType(typeId: 1)
 class CharacterModel extends Equatable {
+  @HiveField(0)
   final int? id;
+
+  @HiveField(1)
   final String? name;
+
+  @HiveField(2)
   final String? description;
+
+  @HiveField(3)
   final String? modified;
+
+  @HiveField(4)
   final ThumbnailModel? thumbnail;
+
+  @HiveField(5)
   final String? resourceURI;
+
+  @HiveField(6)
   final ComicModel? series;
+
+  @HiveField(7)
   final ComicModel? events;
 
   const CharacterModel({

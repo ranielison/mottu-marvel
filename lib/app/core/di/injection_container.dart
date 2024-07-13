@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:mottu_marvel/app/core/api/cache_service.dart';
 import 'package:mottu_marvel/app/core/api/dio_client.dart';
 import 'package:mottu_marvel/app/data/datasources/character_datasource.dart';
 import 'package:mottu_marvel/app/data/datasources/character_remote_datasource_impl.dart';
@@ -20,6 +21,10 @@ Future<void> init({bool isUnitTest = false}) async {
   } else {
     sl.registerSingleton<DioClient>(DioClient());
   }
+
+  sl.registerLazySingleton<HiveService>(
+    () => HiveService(),
+  );
 
   dataSources();
   repositories();

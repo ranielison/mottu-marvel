@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class ThumbnailEntity extends Equatable {
   final String? path;
+
   final String? extension;
 
   String get url => '$path.$extension';

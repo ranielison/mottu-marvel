@@ -17,21 +17,24 @@ class ComicModelAdapter extends TypeAdapter<ComicModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return ComicModel(
-      collectionURI: fields[0] as String?,
-      items: (fields[1] as List?)?.cast<ComicItemModel>(),
-      returned: fields[2] as int?,
+      available: fields[0] as int?,
+      collectionURI: fields[1] as String?,
+      items: (fields[2] as List?)?.cast<ComicItemModel>(),
+      returned: fields[3] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, ComicModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
-      ..write(obj.collectionURI)
+      ..write(obj.available)
       ..writeByte(1)
-      ..write(obj.items)
+      ..write(obj.collectionURI)
       ..writeByte(2)
+      ..write(obj.items)
+      ..writeByte(3)
       ..write(obj.returned);
   }
 

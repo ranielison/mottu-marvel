@@ -2,6 +2,10 @@ import 'package:hive/hive.dart';
 import 'package:mottu_marvel/app/core/api/character_response_model.dart';
 
 class HiveService {
+  // bool _isUnitTest = false;
+
+  // HiveService({bool isUnitTest = false}) {}
+
   Future<Box<CharacterResponseModel>> get _box async =>
       await Hive.openBox<CharacterResponseModel>('CharacterResponse');
 
@@ -17,12 +21,12 @@ class HiveService {
     box.add(response);
   }
 
-  Future<List<CharacterResponseModel>> getAllResponses() async {
+  getAllResponses() async {
     final box = await _box;
     return box.values.toList();
   }
 
-  deleteAllData() async {
+  Future<void> deleteAllData() async {
     final box = await _box;
 
     box.clear();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mottu_marvel/app/core/api/cache_service.dart';
 import 'package:mottu_marvel/app/core/di/injection_container.dart';

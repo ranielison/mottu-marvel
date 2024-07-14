@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:mottu_marvel/app/core/api/character_response_model.dart';
 import 'package:mottu_marvel/app/data/datasources/character_datasource.dart';
-import 'package:mottu_marvel/app/data/models/get_characters_response.dart';
 import 'package:mottu_marvel/app/domain/repositories/character_repository.dart';
 import 'package:mottu_marvel/app/domain/usecases/get_characters.dart';
 import 'package:mottu_marvel/app/core/error/failures.dart';
@@ -12,7 +12,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
   const CharacterRepositoryImpl(this.characterRemoteDatasource);
 
   @override
-  Future<Either<Failure, GetCharactersResponse>> getCharacters(
+  Future<Either<Failure, CharacterResponseModel>> getCharacters(
     GetCharactersParams params,
   ) async {
     final response = await characterRemoteDatasource.getCharacters(params);

@@ -58,7 +58,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         }, (r) {
           emit(
             HomeSuccess(
-              characters: r.results!.map((e) => e.toEntity()).toList(),
+              characters: r.characters!.map((e) => e.toEntity()).toList(),
               maxPage: r.total! > 4 ? r.total! ~/ 4 : 1,
               atualPage: event.page,
               searchTerm: searchTerm,

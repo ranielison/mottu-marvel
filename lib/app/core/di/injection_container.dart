@@ -42,7 +42,7 @@ void repositories() {
 /// Register dataSources
 void dataSources() {
   sl.registerLazySingleton<CharacterDatasource>(
-    () => CharacterRemoteDatasourceImpl(sl()),
+    () => CharacterRemoteDatasourceImpl(sl(), sl()),
   );
 }
 

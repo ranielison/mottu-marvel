@@ -27,7 +27,6 @@ class CharacterRemoteDatasourceImpl implements CharacterDatasource {
   Future<Either<Failure, CharacterResponseModel>> getCharacters(
     GetCharactersParams params,
   ) async {
-    //final hiveService = sl<HiveService>();
     final allResponses = await _cacheService.getAllResponses();
 
     for (CharacterResponseModel r in allResponses) {

@@ -44,3 +44,4 @@ app.*.map.json
 
 .env
 /cache
+/ios/GoogleService-Info.plist

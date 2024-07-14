@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
             if (state is HomeSuccess) {
               return DefaultScreen(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const DefaultAppBar(
                       title: 'Heróis',

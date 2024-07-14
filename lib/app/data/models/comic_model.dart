@@ -7,14 +7,18 @@ part 'comic_model.g.dart';
 
 @HiveType(typeId: 2)
 class ComicModel extends Equatable {
-  final int? available;
   @HiveField(0)
-  final String? collectionURI;
+  final int? available;
+
   @HiveField(1)
-  final List<ComicItemModel>? items;
+  final String? collectionURI;
+
   @HiveField(2)
-  final int? returned;
+  final List<ComicItemModel>? items;
+
   @HiveField(3)
+  final int? returned;
+
   const ComicModel({
     this.available,
     this.collectionURI,
@@ -38,9 +42,10 @@ class ComicModel extends Equatable {
     }
 
     return ComicModel(
-      available: json['available'],
+      available: json['available'] is String ? null : json['available'],
       collectionURI: json['collectionURI'],
       items: items,
+      returned: json['returned'],
     );
   }
 

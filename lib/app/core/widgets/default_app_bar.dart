@@ -18,42 +18,44 @@ class DefaultAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            if (showBackButton)
-              IconButton(
+        showBackButton
+            ? IconButton(
                 icon: const Icon(Icons.arrow_back_ios, color: AppColors.grey3),
                 onPressed: () => Navigator.pop(context),
+              )
+            : IconButton(
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.transparent,
+                ),
+                onPressed: () {},
               ),
-            Expanded(
-              child: title != null
-                  ? Text(
-                      title!,
-                      style: TextStyles.h2Style.copyWith(
-                        color: AppColors.grey3,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    )
-                  : const SizedBox(),
-            ),
-            actions != null
-                ? Row(
-                    children: actions!,
-                  )
-                : IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.transparent,
-                    ),
-                    onPressed: () {},
+        Expanded(
+          child: title != null
+              ? Text(
+                  title!,
+                  style: TextStyles.h2Style.copyWith(
+                    color: AppColors.grey3,
+                    fontWeight: FontWeight.bold,
                   ),
-          ],
+                  textAlign: TextAlign.center,
+                )
+              : const SizedBox(),
         ),
-        if (bottom != null) bottom!,
+        actions != null
+            ? Row(
+                children: actions!,
+              )
+            : IconButton(
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.transparent,
+                ),
+                onPressed: () {},
+              ),
       ],
     );
   }
